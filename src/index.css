@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 body {
   background-color: #282c34;
   overflow: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
 /* message list */
