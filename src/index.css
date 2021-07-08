@@ -1,0 +1,88 @@
+body {
+  background-color: #282c34;
+  overflow: hidden;
+}
+
+/* message list */
+.message-list {
+  padding: 10px;
+  height: 75vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+.message-list ::-webkit-scrollbar {
+  width: 0.25rem;
+}
+.message-list ::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+.message-list ::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
+/* single message */
+.message-container {
+  display: flex;
+}
+.message p {
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+}
+.sent {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.sent p {
+  background: #0b93f6;
+  align-self: flex-end;
+}
+.received p {
+  background: #0b93f6;
+}
+.message-sender {
+  font-size: 0.8rem;
+}
+.message-sender:hover {
+  color: white !important;
+}
+
+/* message send form */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.send-message {
+  position: fixed;
+  bottom: 2rem;
+}
+.send-message input {
+  min-width: 300px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  background: rgb(58, 58, 58);
+  color: white;
+}
+.send-message button {
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.1rem;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.2rem 0rem;
+}
+
+/* Home Page Styles (will migrate later IDK) */
+.home-wrapper {
+  margin: 1rem 0rem;
+}
