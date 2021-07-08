@@ -15,7 +15,7 @@ const Protected = () => {
 
   // Getting User Info From Claims
   const idToken = JSON.parse(localStorage.getItem("okta-token-storage"));
-  const { email, user_name } = idToken.idToken.claims;
+  const { email } = idToken.idToken.claims;
 
   // Functions
   const sendMessage = async (e) => {
