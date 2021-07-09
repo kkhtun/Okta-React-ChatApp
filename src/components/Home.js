@@ -2,9 +2,9 @@ import React from "react";
 
 const Home = () => {
   var email = "";
-  if (localStorage.getItem("okta-token-storage")) {
-    email = JSON.parse(localStorage.getItem("okta-token-storage")).idToken
-      .claims.email;
+  const tokenExists = JSON.parse(localStorage.getItem("okta-token-storage"));
+  if (tokenExists) {
+    email = tokenExists.idToken.claims.email;
   }
 
   return (
