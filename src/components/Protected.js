@@ -11,6 +11,8 @@ const Protected = () => {
   const [messages] = useCollectionData(query, { idField: "id" });
 
   const [formValue, setFormValue] = useState("");
+
+  // Refs
   const dummy = useRef();
 
   // Getting User Info From Claims
@@ -26,9 +28,13 @@ const Protected = () => {
       userID: email, // Just put email, will figure out ID later, IDK
     });
     setFormValue("");
-    dummy.current.scrollIntoView({ behavior: "smooth" });
+    scrollToBottom();
   };
 
+  // Scroll to Bottom function (can't still implement onLoad yet IDK)
+  const scrollToBottom = () => {
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className="message-list">
@@ -46,13 +52,14 @@ const Protected = () => {
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Please say something nice!"
+            onFocus={scrollToBottom}
           />
           <button
             type="submit"
             className="btn btn-primary"
             disabled={!formValue}
           >
-            Send
+            &#10147;
           </button>
         </form>
       </div>

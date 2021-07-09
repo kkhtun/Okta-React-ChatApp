@@ -3,41 +3,32 @@ import { Link, useHistory } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 // This is almost just a bootstrap Navbar Component with Links changed
 const Navbar = () => {
-  const history = useHistory();
   const { oktaAuth, authState } = useOktaAuth();
-
+  const history = useHistory();
   if (!authState) return null;
 
   // Login Logout Functions
   const login = async () => history.push("/login");
   const logout = async () => {
-    history.push("/");
     oktaAuth.signOut();
   };
 
-  const chatLink = authState.isAuthenticated ? (
-    <Link to="/protected" className="nav-link">
-      Chat
-    </Link>
-  ) : (
-    <Link to="/login" className="nav-link">
-      Chat
-    </Link>
-  );
-
+  // Handle Chatroom redirect based on Auth
+  const chatLink = authState.isAuthenticated ? "/protected" : "/login";
+  // Hnadle Login/Logout nav link based on Auth
   const button = authState.isAuthenticated ? (
-    <Link onClick={logout} className="nav-link">
+    <div onClick={logout} className="nav-link">
       Logout
-    </Link>
+    </div>
   ) : (
-    <Link onClick={login} className="nav-link">
+    <div onClick={login} className="nav-link">
       Login
-    </Link>
+    </div>
   );
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
-        Python SuperChat 🔥💬
+        SuperChat 🔥💬
       </Link>
       <button
         className="navbar-toggler"
@@ -57,7 +48,11 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="nav-item">{chatLink}</li>
+          <li className="nav-item">
+            <Link className="nav-link" to={chatLink}>
+              Chat
+            </Link>
+          </li>
           <li className="nav-item">{button}</li>
         </ul>
       </div>

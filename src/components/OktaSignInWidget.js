@@ -19,6 +19,6 @@ const OktaSignInWidget = ({ config, onSuccess, onError }) => {
     return () => widget.remove();
   }, [config, onSuccess, onError]);
 
-  return <div ref={widgetRef} className="mt-4" />;
+  return <div ref={widgetRef} className="mt-2" />;
 };
 export default OktaSignInWidget;

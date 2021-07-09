@@ -30,8 +30,9 @@ const AppWithRouterAccess = () => {
       restoreOriginalUri={restoreOriginalUri}
     >
       <Navbar />
-      <Switch>
-        <main className="container">
+
+      <main className="container">
+        <Switch>
           <Route path="/" exact={true} component={Home} />
           <SecureRoute path="/protected" component={Protected} />
           <Route
@@ -39,8 +40,9 @@ const AppWithRouterAccess = () => {
             render={() => <Login config={oktaSignInConfig} />}
           />
           <Route path="/login/callback" component={LoginCallback} />
-        </main>
-      </Switch>
+        </Switch>
+      </main>
+
       <Footer />
     </Security>
   );

@@ -13,6 +13,12 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 450px) {
+  .message-list {
+    height: 70vh;
+  }
+}
 .message-list ::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -37,7 +43,7 @@ body {
   text-align: right;
 }
 .sent p {
-  background: #0b93f6;
+  background: #68ff33;
   align-self: flex-end;
 }
 .received p {
@@ -68,7 +74,7 @@ body {
   color: white;
 }
 .send-message button {
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.2rem;
   margin-bottom: 0.1rem;
 }
 button:disabled {
@@ -87,4 +93,9 @@ button:disabled {
 /* Home Page Styles (will migrate later IDK) */
 .home-wrapper {
   margin: 1rem 0rem;
+}
+
+/* Navbar */
+.nav-link:hover {
+  cursor: pointer;
 }
